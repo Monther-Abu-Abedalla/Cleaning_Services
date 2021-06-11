@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "985944776998",
+    "project_id": "cleaning-services-b1c8f",
+    "storage_bucket": "cleaning-services-b1c8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985944776998:android:f9263de67c55fdc62661e7",
+        "android_client_info": {
+          "package_name": "com.example.cleaningservices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985944776998-0d547pofr3iq8ptbv5tifqjhjlkoqq4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlkXoISctpGfsVtHSTAbzHhg8fCp83lcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985944776998-0d547pofr3iq8ptbv5tifqjhjlkoqq4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

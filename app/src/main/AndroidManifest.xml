@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cleaningservices">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/MyServiceCleaningTheme">
+        <activity android:name=".login_signup.CreatAccountActivity"></activity>
+        <activity android:name=".intro.Intro" />
+        <activity
+            android:name=".login_signup.LoginActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden" />
+        <activity
+            android:name=".intro.FragmentsActivityContainer"
+            android:screenOrientation="portrait" />
+        <activity android:name=".intro.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
