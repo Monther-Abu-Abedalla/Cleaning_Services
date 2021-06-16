@@ -1,8 +1,5 @@
 package com.example.cleaningservices.login_signup;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,17 +9,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cleaningservices.R;
+import com.example.cleaningservices.user_screens.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.jetbrains.annotations.NotNull;
 
 public class LoginActivity extends AppCompatActivity {
     TextInputLayout etEmailLayoutInSignIn;
@@ -35,12 +33,21 @@ public class LoginActivity extends AppCompatActivity {
     ImageButton btnLoginByGooglePlus;
     ImageButton btnLoginByTwitter;
     TextView btnGoToAccountCreate;
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    View pbLoadingInSignIn;
+    View viewBlurInSignIn;
+    View signInContainer;
+
+
+    final private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        signInContainer = findViewById(R.id.signInContainer);
+        pbLoadingInSignIn = findViewById(R.id.pbLoadingInSignIn);
+        viewBlurInSignIn = findViewById(R.id.viewBlurInSignIn);
 
         etEmailInSignIn = findViewById(R.id.etEmailInSignIn);
         etEmailLayoutInSignIn = findViewById(R.id.etEmailLayoutInSignIn);
@@ -89,10 +96,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boolean isValidEmail = false;
                 if(etEmailInSignIn.getText().toString().trim().isEmpty()){
-                    etEmailLayoutInSignIn.setError("يجب ادخال بريد الكتروني");
+                    etEmailLayoutInSignIn.setError(getResources().getString(R.string.email_req));
                 }else if(!(etEmailInSignIn.getText().toString().contains("@") &&
                         etEmailInSignIn.getText().toString().contains(".com"))){
-                    etEmailLayoutInSignIn.setError("يجب ادخال بريد الكتروني صالح");
+                    etEmailLayoutInSignIn.setError(getResources().getString(R.string.valid_email_req));
                 }else{
                      isValidEmail = true;
                 }
@@ -100,22 +107,25 @@ public class LoginActivity extends AppCompatActivity {
 
                 boolean isValidPassword = false;
                 if(etPasswordInSignIn.getText().toString().trim().isEmpty()){
-                    etPasswordLayoutInSignIn.setError("يجب ادخال كلمة المرور");
+                    etPasswordLayoutInSignIn.setError(getResources().getString(R.string.password_req));
                 }else if(etPasswordInSignIn.getText().toString().length() < 6 ){
-                    etPasswordLayoutInSignIn.setError("يجب ادخال كلمة مرور اكبر من 6 احرف");
+                    etPasswordLayoutInSignIn.setError(getResources().getString(R.string.valid_password_req));
                 }else{
                     isValidPassword = true;
                 }
-
                 if(isValidEmail && isValidPassword){
-                    mAuth.signInWithEmailAndPassword(etEmailInSignIn.getText().toString(),etPasswordInSignIn.getText().toString()).
+                    pbLoadingInSignIn.setVisibility(View.VISIBLE);
+                    viewBlurInSignIn.setVisibility(View.VISIBLE);
+                    auth.signInWithEmailAndPassword(etEmailInSignIn.getText().toString(),etPasswordInSignIn.getText().toString()).
                     addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+                        public void onComplete(@NonNull Task<AuthResult> task) {
                            if (task.isSuccessful()){
-
+                            Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                            startActivity(i);
                            }else {
-
+                               hideProgress();
+                               showErrorSnackBar(R.string.error_sign_in);
                            }
 
                         }
@@ -142,5 +152,20 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    private void showErrorSnackBar(int stringResource) {
+        View container = findViewById(R.id.registerLayoutContainer);
+        Snackbar snackbar = Snackbar.make(signInContainer, getResources().getString(stringResource), Snackbar.LENGTH_SHORT);
+        snackbar.getView().setBackgroundColor(getResources().getColor(R.color.red));
+        snackbar.show();
+    }
+
+    private void hideProgress() {
+        if (pbLoadingInSignIn.getVisibility() == View.VISIBLE) {
+            pbLoadingInSignIn.setVisibility(View.GONE);
+            viewBlurInSignIn.setVisibility(View.GONE);
+        }
+    }
+
 
 }

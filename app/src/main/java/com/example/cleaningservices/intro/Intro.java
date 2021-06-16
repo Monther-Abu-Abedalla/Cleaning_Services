@@ -1,10 +1,9 @@
 package com.example.cleaningservices.intro;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
-
-import android.os.Bundle;
-import android.view.View;
 
 import com.example.cleaningservices.R;
 

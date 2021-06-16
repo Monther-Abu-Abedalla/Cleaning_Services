@@ -1,6 +1,30 @@
 <resources>
     <string name="app_name">Cleaning Services</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="username">إسم المستخدم</string>
+    <string name="forget_password">نسيت كلمة المرور ؟</string>
     <string name="create_account_q">ليس لديك حساب ؟ <font color="#18573A">أنشا حساب</font></string>
     <string name="privacy_agree">عند تسجيلك فأنت توافق على <font color="#FF9100"><u>الأحكام و الشروط</u></font></string>
+    <string name="username_req">يجب عليك إدخال إسم المستخدم الخاص بك</string>
+    <string name="email_req">يجب ادخال بريد الكتروني</string>
+    <string name="valid_email_req">يجب ادخال بريد الكتروني صالح</string>
+    <string name="password_req">يجب ادخال كلمة المرور</string>
+    <string name="valid_password_req">يجب ادخال كلمة مرور اكبر من 6 احرف</string>
+    <string name="email_used">البريد الإلكتروني مرتبط بحساب آخر</string>
+    <string name="failed_to_add_account">فشل إنشاء الحساب</string>
+    <string name="have_account_q">هل لديك حساب ؟ <font color="#18573A">تسجيل دخول</font></string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="sign_up">إنشاء حساب</string>
+    <string name="account_create_success">تم إنشاء الحساب بنجاح الرجاء الإنتظار</string>
+    <string name="error_sign_in">حدث خطأ اثناء تسجيل الدخول 🙄</string>
+    <string name="or">أو</string>
+    <string name="discount_card">أحصل على خصم 40%\nلأي خدمة تنظيف</string>
+    <string name="discount_card_end_date">حتى تاريخ 30/04/2021</string>
+    <string name="take_ticket_now"><font><u>إحجز الآن</u></font></string>
+    <string name="home">الصفحة الرئيسية</string>
+    <string name="search_hint">البحث</string>
+    <string name="cleaning">تنظيف</string>
+    <string name="fixing">صيانة</string>
+    <string name="washing">غسيل</string>
 </resources>

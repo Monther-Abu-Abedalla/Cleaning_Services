@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/signInContainer"
     tools:context=".login_signup.LoginActivity">
-
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,8 +20,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:clickable="false">
 
             <View
                 android:id="@+id/view2"
@@ -90,6 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="@dimen/_20sdp"
                         android:layoutDirection="rtl"
@@ -114,7 +114,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#00000000"
-                                android:hint="البريد الإلكتروني"
+                                android:hint="@string/email"
                                 app:errorEnabled="true"
                                 app:errorTextColor="@color/red"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -142,7 +142,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:hint="كلمة المرور"
+                                android:hint="@string/password"
                                 app:endIconMode="password_toggle"
                                 app:errorEnabled="true"
                                 app:errorTextColor="@color/red"
@@ -171,7 +171,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_4sdp"
                                 android:layout_marginBottom="@dimen/_30sdp"
-                                android:text="نسيت كلمة المرور؟"
+                                android:text="@string/forget_password"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="@+id/etPasswordLayoutInSignIn"
                                 app:layout_constraintHorizontal_bias="0.0"
@@ -192,7 +192,7 @@
                     android:layout_marginStart="@dimen/_46sdp"
                     android:layout_marginEnd="@dimen/_46sdp"
                     android:background="@drawable/buttons_shape"
-                    android:text="تسجيل الدخول"
+                    android:text="@string/sign_in"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -222,7 +222,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:text="أو"
+                android:text="@string/or"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -312,6 +312,37 @@
                 app:layout_constraintStart_toStartOf="@+id/btnLoginByTwitter"
                 app:layout_constraintTop_toBottomOf="@+id/btnLoginByGooglePlus"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <View
+                android:id="@+id/viewBlurInSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/blur_color"
+                android:elevation="6dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/pbLoadingInSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="8dp"
+                android:visibility="gone"
+                app:indicatorColor="@color/primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:progress="50"
+                tools:visibility="visible" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

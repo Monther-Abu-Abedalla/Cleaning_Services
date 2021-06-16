@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registerLayoutContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/CreateAccountActivity"
     tools:context=".login_signup.CreateAccountActivity">
 
     <ScrollView
@@ -89,6 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="@dimen/_20sdp"
                         android:layoutDirection="rtl"
@@ -112,7 +113,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#00000000"
-                                android:hint="الاسم"
+                                android:hint="@string/username"
                                 app:errorEnabled="true"
                                 app:errorTextColor="@color/red"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -135,12 +136,12 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/etEmailLayoutInSignIn"
+                                android:id="@+id/etEmailLayoutInSignUp"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#00000000"
-                                android:hint="البريد الإلكتروني"
+                                android:hint="@string/email"
                                 app:errorEnabled="true"
                                 app:errorTextColor="@color/red"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -153,7 +154,7 @@
                                 app:startIconTint="@null">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/etEmailInSignIn"
+                                    android:id="@+id/etEmailInSignUp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="#00000000"
@@ -163,26 +164,27 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/etPasswordLayoutInSignIn"
+                                android:id="@+id/etPasswordLayoutInSignUp"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:hint="كلمة المرور"
+                                android:layout_marginBottom="@dimen/_30sdp"
+                                android:hint="@string/password"
                                 app:endIconMode="password_toggle"
                                 app:errorEnabled="true"
                                 app:errorTextColor="@color/red"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="@+id/etEmailLayoutInSignIn"
+                                app:layout_constraintEnd_toEndOf="@+id/etEmailLayoutInSignUp"
                                 app:layout_constraintHorizontal_bias="0.5"
-                                app:layout_constraintStart_toStartOf="@+id/etEmailLayoutInSignIn"
-                                app:layout_constraintTop_toBottomOf="@+id/etEmailLayoutInSignIn"
+                                app:layout_constraintStart_toStartOf="@+id/etEmailLayoutInSignUp"
+                                app:layout_constraintTop_toBottomOf="@+id/etEmailLayoutInSignUp"
                                 app:layout_constraintVertical_bias="0.0"
                                 app:startIconDrawable="@drawable/ic_password"
                                 app:startIconTint="@null">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/etPasswordInSignIn"
+                                    android:id="@+id/etPasswordInSignUp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="#00000000"
@@ -191,20 +193,6 @@
                                     android:textAlignment="viewStart" />
                             </com.google.android.material.textfield.TextInputLayout>
 
-                            <TextView
-                                android:id="@+id/btnForgetPassword"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_4sdp"
-                                android:layout_marginBottom="@dimen/_30sdp"
-                                android:text="نسيت كلمة المرور؟"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="@+id/etPasswordLayoutInSignIn"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/etPasswordLayoutInSignIn"
-                                app:layout_constraintVertical_bias="0.0" />
-
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -212,13 +200,13 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/login_btn_Sign"
+                    android:id="@+id/register_btn"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginStart="@dimen/_46sdp"
                     android:layout_marginEnd="@dimen/_46sdp"
                     android:background="@drawable/buttons_shape"
-                    android:text="تسجيل الدخول"
+                    android:text="@string/sign_up"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -248,7 +236,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:text="أو"
+                android:text="@string/or"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -320,25 +308,55 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:text="@string/privacy_agree"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/btnGoToAccountCreate"
+                app:layout_constraintEnd_toEndOf="@+id/btnGoToAccountLogin"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/btnGoToAccountCreate"
-                app:layout_constraintTop_toBottomOf="@+id/btnGoToAccountCreate"
+                app:layout_constraintStart_toStartOf="@+id/btnGoToAccountLogin"
+                app:layout_constraintTop_toBottomOf="@+id/btnGoToAccountLogin"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/btnGoToAccountCreate"
+                android:id="@+id/btnGoToAccountLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12sdp"
-                android:text="@string/create_account_q"
+                android:text="@string/have_account_q"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/btnLoginByFacebook"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/btnLoginByTwitter"
                 app:layout_constraintTop_toBottomOf="@+id/btnLoginByGooglePlus"
                 app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
+            <View
+                android:id="@+id/viewBlurnSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/blur_color"
+                android:elevation="6dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/pbLoadingInSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="8dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:indicatorColor="@color/primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:progress="50" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,5 +17,9 @@
     <color name="orange">#FF9100</color>
     <color name="red">#DC4E41</color>
 
+    <color name="success">#05B660</color>
+    <color name="blur_color">#28000000</color>
+    <color name="hit_effect">#D5D5D5</color>
+
 
 </resources>
