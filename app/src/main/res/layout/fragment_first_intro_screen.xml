@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/firstStart"
     android:layout_height="match_parent"
     tools:context=".intro.First_intro_screen">
 
@@ -84,17 +85,92 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5"
             app:layout_constraintVertical_bias="0.22000003" />
 
-        <ImageView
-            android:id="@+id/move_btn"
-            android:layout_width="173dp"
-            android:layout_height="71dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_new_text_document__10_"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:elevation="@dimen/_18sdp"
+            android:src="@drawable/ic_arrrow"
+            android:theme="@style/MyFabTheme"
+            app:fabCustomSize="@dimen/_50sdp"
+            app:fabSize="auto"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            android:indeterminateOnly="false"
+            android:progress="50"
+            android:layout_width="@dimen/_85sdp"
+            android:layout_height="@dimen/_85sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_move"
+            app:layout_constraintEnd_toEndOf="@+id/btn_move"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="@+id/btn_move"
+            android:progressDrawable="@drawable/progressshape_new"
+            app:layout_constraintTop_toTopOf="@+id/btn_move" />
+
+        <com.google.android.material.button.MaterialButton
+            app:iconGravity="end"
+            android:visibility="gone"
+            android:id="@+id/go_to_login_screen_btn"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_46sdp"
+            android:layout_marginEnd="@dimen/_46sdp"
+            android:background="@drawable/buttons_shape_grad"
+            android:text="تسجيل الدخول"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp"
+            app:iconTint="@null"
+            app:icon="@drawable/ic_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            app:layout_constraintVertical_bias="0.515" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/imageView7"
+            android:src="@drawable/phot_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/photoInrp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/imageView8"
+            android:src="@drawable/phot_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/photoInrp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageView66"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_points2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.22000003" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

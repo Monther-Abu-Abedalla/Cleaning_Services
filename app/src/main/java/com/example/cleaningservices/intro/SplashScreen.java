@@ -30,13 +30,15 @@ public class SplashScreen extends AppCompatActivity {
 
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.primary_color));
 
-        Boolean isFirstTimeOpened = getSharedPreferences("isFirstTimeOpened", MODE_PRIVATE).getBoolean("isFirstTimeOpened", true);
+        Boolean isFirstTimeOpened = getSharedPreferences("isFirstTimeOpened", MODE_PRIVATE)
+                .getBoolean("isFirstTimeOpened", true);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (isFirstTimeOpened) {
-                    startActivity(new Intent(getApplicationContext(), Intro.class));
+                    startActivity(new Intent(getApplicationContext(), FragmentsActivityContainer.class));
                 } else {
                     if (auth.getCurrentUser() == null) {
                         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
