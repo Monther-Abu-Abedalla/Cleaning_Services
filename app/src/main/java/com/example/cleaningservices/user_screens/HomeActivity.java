@@ -3,35 +3,25 @@ package com.example.cleaningservices.user_screens;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.example.cleaningservices.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
 
 public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView navigation;
-
+    FloatingActionButton floatingActionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Window window = this.getWindow();
-
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.white));
-
-
 
         navigation = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
@@ -46,11 +36,20 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.miServices:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new MyServicesFragment()).commit();
                         break;
-
-
                 }
                 return true;
             }
         });
+
+
+        floatingActionButton = findViewById(R.id.fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new NewServiceFragment()).commit();
+
+            }
+        });
+
     }
 }

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyServiceCleaningTheme">
         <activity android:name=".login_signup.CreateAccountActivity" />
-        <activity android:name=".user_screens.HomeActivity" />
+        <activity android:name=".user_screens.HomeActivity"/>
         <activity android:name=".intro.Intro" />
         <activity
             android:name=".login_signup.LoginActivity"

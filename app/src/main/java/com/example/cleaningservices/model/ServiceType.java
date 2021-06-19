@@ -2,38 +2,46 @@ package com.example.cleaningservices.model;
 
 public class ServiceType {
 
-    private int imageResource;
-    private String service;
-    private int colorResource;
+    private String imageResource;
+    private String serviceName;
+    private String id;
+    private Boolean isChecked = false;
 
-    public ServiceType(int imageResource, String service, int colorResource) {
+    public ServiceType(String id, String serviceName, String imageResource) {
         this.imageResource = imageResource;
-        this.service = service;
-        this.colorResource = colorResource;
+        this.serviceName = serviceName;
+        this.id = id;
     }
 
-    public int getImageResource() {
+    public String getImageResource() {
         return imageResource;
     }
 
-    public void setImageResource(int imageResource) {
+    public void setImageResource(String imageResource) {
         this.imageResource = imageResource;
     }
 
     public String getService() {
-        return service;
+        return serviceName;
     }
 
     public void setService(String service) {
-        this.service = service;
+        this.serviceName = service;
     }
 
-    public int getColorResource() {
-        return colorResource;
+    public Boolean getChecked() {
+        return isChecked;
     }
 
-    public void setColorResource(int colorResource) {
-        this.colorResource = colorResource;
+    public void setChecked(Boolean checked) {
+        isChecked = checked;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

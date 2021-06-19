@@ -27,4 +27,18 @@
     <string name="cleaning">تنظيف</string>
     <string name="fixing">صيانة</string>
     <string name="washing">غسيل</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="myServices">خدماتي</string>
+    <string name="Notification">Notification</string>
+    <string name="newService">خدمة جديدة</string>
+    <string name="services">خدماتنا</string>
+    <string name="show_all">عرض الكل</string>
+    <string name="error_occurred">حدث خطأ</string>
+    <string name="no_services_for_type">عذرا ، لا توجد خدمات فرعية لهذه الخدمة</string>
+    <string name="enter_a_valid_data_in_db">قم بإدخال بيانات صحيحة في قاعدة البيانات</string>
+    <string name="chooseServices">اختر الخدمات المطلوبة</string>
+    <string name="choose_place">إختر نوع المكان</string>
+    <string name="place_size">حجم المكان</string>
+    <string name="per_hour"> لكل ساعة $<font color="#18573A">%1$d</font></string>
+    <string name="confirm_operations">تأكيد العمليات المطلوبة</string>
 </resources>

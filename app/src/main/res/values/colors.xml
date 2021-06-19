@@ -20,6 +20,7 @@
     <color name="success">#05B660</color>
     <color name="blur_color">#28000000</color>
     <color name="hit_effect">#D5D5D5</color>
-
+    <color name="dark">#273036</color>
+    <color name="selctedItem">#CD9250</color>
 
 </resources>

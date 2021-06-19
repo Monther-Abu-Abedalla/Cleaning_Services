@@ -1,20 +1,21 @@
 package com.example.cleaningservices.user_screens;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.fragment.app.Fragment;
 
 import com.example.cleaningservices.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MyServicesFragment#newInstance} factory method to
+ * Use the {@link ChildFirstFragmentMyService#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyServicesFragment extends Fragment {
+public class ChildFirstFragmentMyService extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +26,7 @@ public class MyServicesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public MyServicesFragment() {
+    public ChildFirstFragmentMyService() {
         // Required empty public constructor
     }
 
@@ -35,11 +36,11 @@ public class MyServicesFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MyServicesFragment.
+     * @return A new instance of fragment ChildFirstFragmentMyService.
      */
     // TODO: Rename and change types and number of parameters
-    public static MyServicesFragment newInstance(String param1, String param2) {
-        MyServicesFragment fragment = new MyServicesFragment();
+    public static ChildFirstFragmentMyService newInstance(String param1, String param2) {
+        ChildFirstFragmentMyService fragment = new ChildFirstFragmentMyService();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,11 +61,6 @@ public class MyServicesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_my_services, container, false);
-
-
-
-
-        return view;
+        return inflater.inflate(R.layout.fragment_child_first_my_service, container, false);
     }
 }
