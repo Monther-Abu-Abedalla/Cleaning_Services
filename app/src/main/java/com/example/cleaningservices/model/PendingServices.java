@@ -5,11 +5,12 @@ public class PendingServices {
     private String id;
     private Long time;
     private String money;
-
-    public PendingServices(String id, Long time, String money) {
+    private int hours;
+    public PendingServices(String id, Long time, String money , int hours) {
         this.id = id;
         this.time = time;
         this.money = money;
+        this.hours=hours;
     }
 
     public String getId() {
@@ -34,5 +35,13 @@ public class PendingServices {
 
     public void setMoney(String money) {
         this.money = money;
+    }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 }

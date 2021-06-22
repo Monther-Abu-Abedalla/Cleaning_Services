@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,19 +45,20 @@ public class CreateAccountActivity extends AppCompatActivity {
     Button register_btn;
     View viewBlur;
     View pbLoading;
-
+    TextView btnGoToAccountLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
-        Window window = this.getWindow();
 
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.white));
-
+        btnGoToAccountLogin = findViewById(R.id.btnGoToAccountLogin);
+        btnGoToAccountLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CreateAccountActivity.this,LoginActivity.class));
+                finish();
+            }
+        });
 
         viewBlur = findViewById(R.id.viewBlurnSignUp);
         pbLoading = findViewById(R.id.pbLoadingInSignUp);

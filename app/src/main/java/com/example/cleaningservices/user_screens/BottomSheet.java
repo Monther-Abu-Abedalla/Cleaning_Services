@@ -96,6 +96,7 @@ public class BottomSheet extends BaseBottomSheet {
                     hashMap.put("id", UUID.randomUUID().toString());
                     hashMap.put("time",finalCalendar.getTimeInMillis());
                     hashMap.put("money",seekBar.getProgress()*10/3);
+                    hashMap.put("Hours",seekBar.getProgress()/5);
                     db.collection("pending_services").add(hashMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {

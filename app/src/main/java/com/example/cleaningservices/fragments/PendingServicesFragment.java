@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.cleaningservices.R;
 import com.example.cleaningservices.adapter.CompletedPendingServicesAdapter;
@@ -42,7 +43,7 @@ public class PendingServicesFragment extends Fragment {
     private String mParam2;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private RecyclerView rvPendingServices;
-
+    private SwipeRefreshLayout refreshLayout;
     public PendingServicesFragment() {
         // Required empty public constructor
     }
@@ -81,6 +82,26 @@ public class PendingServicesFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_pending_services, container, false);
 
         rvPendingServices = root.findViewById(R.id.rvPendingServices);
+        refreshLayout = root.findViewById(R.id.refreshPending);
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                myRefresh();
+            }
+        });
+        myRefresh();
+        return root;
+    }
+
+    private void showSnackBar(Activity activity, int stringResource, int colorResource) {
+        View homeContainer = activity.findViewById(R.id.homeContainer);
+        Snackbar snackbar = Snackbar.make(homeContainer, activity.getResources().getString(stringResource), Snackbar.LENGTH_SHORT);
+        snackbar.getView().setBackgroundColor(activity.getResources().getColor(colorResource));
+        snackbar.show();
+    }
+
+    private void myRefresh(){
 
         ArrayList<PendingServices> arrServices = new ArrayList<>();
         db.collection("pending_services").get()
@@ -89,12 +110,16 @@ public class PendingServicesFragment extends Fragment {
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for (int i = 0; i < queryDocumentSnapshots.size(); i++) {
 
-                           arrServices.add(
-                           new PendingServices(queryDocumentSnapshots.getDocuments().get(i).get("id").toString(),
-                                   Long.parseLong( queryDocumentSnapshots.getDocuments().get(i).get("time").toString()),
-                                   queryDocumentSnapshots.getDocuments().get(i).get("money").toString()
-                                   )
-                           );
+                            arrServices.add(
+                                    new PendingServices(queryDocumentSnapshots.getDocuments().get(i).get("id").toString(),
+                                            Long.parseLong( queryDocumentSnapshots.getDocuments().get(i).get("time").toString()),
+                                            queryDocumentSnapshots.getDocuments().get(i).get("money").toString(),
+                                            Integer.parseInt(queryDocumentSnapshots.getDocuments().get(i).get("Hours").toString())
+                                    )
+                            );
+                        }
+                        if (refreshLayout.isRefreshing()){
+                            refreshLayout.setRefreshing(false);
                         }
                         CompletedPendingServicesAdapter adapter = new CompletedPendingServicesAdapter(getActivity(), arrServices, "pending");
                         rvPendingServices.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -106,15 +131,6 @@ public class PendingServicesFragment extends Fragment {
                 showSnackBar(requireActivity(), R.string.error_occurred, R.color.red);
             }
         });
-
-        return root;
-    }
-
-    private void showSnackBar(Activity activity, int stringResource, int colorResource) {
-        View homeContainer = activity.findViewById(R.id.homeContainer);
-        Snackbar snackbar = Snackbar.make(homeContainer, activity.getResources().getString(stringResource), Snackbar.LENGTH_SHORT);
-        snackbar.getView().setBackgroundColor(activity.getResources().getColor(colorResource));
-        snackbar.show();
     }
 
 }

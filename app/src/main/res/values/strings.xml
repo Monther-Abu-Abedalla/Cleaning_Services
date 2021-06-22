@@ -53,5 +53,7 @@
     <string name="fill_all_bottomSheet">يجب ملئ كل البيانات قبل الاستمرار</string>
     <string name="added_successfully">تمت الاضاقة بنجاح</string>
     <string name="failed_toAdd">تمت الاضاقة بنجاح</string>
-
+    <string name="failed_to_send_email">فشل ارسال اعادة تعيين كلمة المرور</string>
+    <string name="success_to_send_email">تم ارسال اعادة تعيين كلمة المرور بنجاح</string>
+    <string name="send_code">ارسال الرمز</string>
 </resources>

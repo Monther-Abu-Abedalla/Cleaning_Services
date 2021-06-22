@@ -1,7 +1,9 @@
 package com.example.cleaningservices.user_screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -96,7 +98,15 @@ public class NewServiceFragment extends Fragment {
             }
         });
 
+        requireActivity().getOnBackPressedDispatcher().addCallback(requireActivity(), new OnBackPressedCallback(true){
+            @Override
+            public void handleOnBackPressed() {
+                requireActivity().startActivity(new Intent(getActivity(),HomeActivity.class));
+            }
+        });
+
         return view;
+
 
     }
 

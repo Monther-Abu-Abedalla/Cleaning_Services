@@ -14,6 +14,7 @@
         android:theme="@style/MyServiceCleaningTheme">
         <activity android:name=".login_signup.CreateAccountActivity" />
         <activity android:name=".user_screens.HomeActivity"/>
+        <activity android:name=".login_signup.RestartPassword"/>
         <activity
             android:name=".login_signup.LoginActivity"
             android:configChanges="screenSize|orientation|keyboardHidden" />

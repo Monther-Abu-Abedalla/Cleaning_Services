@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
     View viewBlurInSignIn;
     View signInContainer;
 
-
     final private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @Override
@@ -123,6 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                            if (task.isSuccessful()){
                             Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(i);
+                            finish();
                            }else {
                                hideProgress();
                                showErrorSnackBar(R.string.error_sign_in);
@@ -148,7 +148,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
+        btnForgetPassword = findViewById(R.id.btnForgetPassword);
+        btnForgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,RestartPassword.class));
+            }
+        });
 
 
     }

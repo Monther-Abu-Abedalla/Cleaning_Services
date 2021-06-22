@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.cleaningservices.R;
 import com.example.cleaningservices.adapter.CompletedPendingServicesAdapter;
@@ -43,6 +44,7 @@ public class CompletedServicesFragment extends Fragment {
     private String mParam2;
     private RecyclerView rvCompetedServices;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private SwipeRefreshLayout refreshLayout;
 
     /**
      * Use this factory method to create a new instance of
@@ -82,14 +84,43 @@ public class CompletedServicesFragment extends Fragment {
         View root=  inflater.inflate(R.layout.fragment_completed_services, container, false);
 
         rvCompetedServices = root.findViewById(R.id.rvCompetedServices);
+        refreshLayout = root.findViewById(R.id.completedRefrech);
 
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                myRefrech();
+            }
+        });
+        myRefrech();
+        return root;
+    }
+
+    private void showSnackBar(Activity activity, int stringResource, int colorResource) {
+        View homeContainer = activity.findViewById(R.id.homeContainer);
+        Snackbar snackbar = Snackbar.make(homeContainer, activity.getResources().getString(stringResource), Snackbar.LENGTH_SHORT);
+        snackbar.getView().setBackgroundColor(activity.getResources().getColor(colorResource));
+        snackbar.show();
+    }
+
+    private void myRefrech(){
         ArrayList<PendingServices> arrServices = new ArrayList<>();
         db.collection("completed_services").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for (int i = 0; i < queryDocumentSnapshots.size(); i++) {
-//                            arrServices.add();
+                            arrServices.add(
+                                    new PendingServices(queryDocumentSnapshots.getDocuments().get(i).get("id").toString(),
+                                            Long.parseLong( queryDocumentSnapshots.getDocuments().get(i).get("time").toString()),
+                                            queryDocumentSnapshots.getDocuments().get(i).get("money").toString(),
+                                            Integer.parseInt(queryDocumentSnapshots.getDocuments().get(i).get("Hours").toString())
+                                    )
+
+                            );
+                        }
+                        if (refreshLayout.isRefreshing()){
+                            refreshLayout.setRefreshing(false);
                         }
                         CompletedPendingServicesAdapter adapter = new CompletedPendingServicesAdapter(getActivity(), arrServices, "completed");
                         rvCompetedServices.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -101,16 +132,6 @@ public class CompletedServicesFragment extends Fragment {
                 showSnackBar(requireActivity(), R.string.error_occurred, R.color.red);
             }
         });
-
-
-        return root;
-    }
-
-    private void showSnackBar(Activity activity, int stringResource, int colorResource) {
-        View homeContainer = activity.findViewById(R.id.homeContainer);
-        Snackbar snackbar = Snackbar.make(homeContainer, activity.getResources().getString(stringResource), Snackbar.LENGTH_SHORT);
-        snackbar.getView().setBackgroundColor(activity.getResources().getColor(colorResource));
-        snackbar.show();
     }
 
 }
