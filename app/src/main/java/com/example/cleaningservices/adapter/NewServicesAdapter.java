@@ -60,7 +60,7 @@ public class NewServicesAdapter extends RecyclerView.Adapter<NewServicesAdapter.
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             tvServiceType = itemView.findViewById(R.id.tvServiceType);
-            cvServiceTypeCard = itemView.findViewById(R.id.cvServiceTypeCard);
+            cvServiceTypeCard = itemView.findViewById(R.id.newcvServiceTypeCard);
             ivServiceTypeImage = itemView.findViewById(R.id.ivServiceTypeImage);
         }
 

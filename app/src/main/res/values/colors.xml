@@ -5,7 +5,7 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="primary_color">#18573A</color>
@@ -21,6 +21,12 @@
     <color name="blur_color">#28000000</color>
     <color name="hit_effect">#D5D5D5</color>
     <color name="dark">#273036</color>
+
+    <color name="less_gray">#EEEEF0</color>
+
+    <color name="date_color_1">#D4A26A</color>
+    <color name="date_color_2">#3A7057</color>
+    <color name="date_color_3">#B0B0B0</color>
     <color name="selctedItem">#CD9250</color>
 
 </resources>

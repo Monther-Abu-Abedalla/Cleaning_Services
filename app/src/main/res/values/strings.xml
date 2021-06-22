@@ -40,5 +40,18 @@
     <string name="choose_place">إختر نوع المكان</string>
     <string name="place_size">حجم المكان</string>
     <string name="per_hour"> لكل ساعة $<font color="#18573A">%1$d</font></string>
+    <string name="four_ours">ساعات<font color="#18573A">%1$d</font></string>
     <string name="confirm_operations">تأكيد العمليات المطلوبة</string>
+    <string name="completed">مكتملة</string>
+    <string name="pending">بالإنتظار</string>
+    <string name="service_number">رقم الخدمة - %1$d</string>
+    <string name="required_price">المبلغ المستحق لكل ساعة - %1$d $/لكل ساعة</string>
+    <string name="location">شارع النزلة - شمال غزة</string>
+    <string name="time">05:00 م</string>
+    <string name="remind_days">متبقي %1$d يوم</string>
+    <string name="my_services">خدماتي</string>
+    <string name="fill_all_bottomSheet">يجب ملئ كل البيانات قبل الاستمرار</string>
+    <string name="added_successfully">تمت الاضاقة بنجاح</string>
+    <string name="failed_toAdd">تمت الاضاقة بنجاح</string>
+
 </resources>

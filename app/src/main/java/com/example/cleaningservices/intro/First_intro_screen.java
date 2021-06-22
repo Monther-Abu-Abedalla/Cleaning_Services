@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ public class First_intro_screen extends Fragment {
     ImageView photoInrp;
 
     ImageView pointOne;
-    ImageView pointTwo;
+    Drawable pointTwo;
 
     ImageView phot_2;
     ImageView phot_3;
@@ -49,7 +50,6 @@ public class First_intro_screen extends Fragment {
         photoInrp = root.findViewById(R.id.photoInrp);
 
         pointOne = root.findViewById(R.id.imageView6);
-        pointTwo = root.findViewById(R.id.imageView66);
 
 
         phot_2 = root.findViewById(R.id.imageView7);
@@ -119,10 +119,10 @@ public class First_intro_screen extends Fragment {
     }
 
 
-    public class ProgressBarAnimation extends Animation {
-        private ProgressBar progressBar;
-        private float from;
-        private float to;
+    public static class ProgressBarAnimation extends Animation {
+        private final ProgressBar progressBar;
+        private final float from;
+        private final float to;
 
         public ProgressBarAnimation(ProgressBar progressBar, float from, float to) {
             super();
